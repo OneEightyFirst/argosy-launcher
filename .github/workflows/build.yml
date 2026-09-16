@@ -2,7 +2,7 @@ name: Build
 
 on:
   push:
-    branches: [main]
+    branches: [main, feat/pizza-boy-pro]
   pull_request:
     branches: [main]
 
