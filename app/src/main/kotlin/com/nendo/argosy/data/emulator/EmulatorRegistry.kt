@@ -673,11 +673,6 @@ object EmulatorRegistry {
             packageName = "it.dbtecno.pizzaboygbapro",
             displayName = "Pizza Boy A Pro",
             supportedPlatforms = setOf("gba"),
-            launchAction = Intent.ACTION_MAIN,
-            launchConfig = LaunchConfig.Custom(
-                activityClass = "it.dbtecno.pizzaboygbapro.MainActivity",
-                intentExtras = mapOf("rom_uri" to ExtraValue.FilePath)
-            ),
             downloadUrl = "https://play.google.com/store/apps/details?id=it.dbtecno.pizzaboygbapro"
         ),
         EmulatorDef(
@@ -692,11 +687,6 @@ object EmulatorRegistry {
             packageName = "it.dbtecno.pizzaboypro",
             displayName = "Pizza Boy C Pro",
             supportedPlatforms = setOf("gb", "gbc"),
-            launchAction = Intent.ACTION_MAIN,
-            launchConfig = LaunchConfig.Custom(
-                activityClass = "it.dbtecno.pizzaboypro.MainActivity",
-                intentExtras = mapOf("rom_uri" to ExtraValue.FilePath)
-            ),
             downloadUrl = "https://play.google.com/store/apps/details?id=it.dbtecno.pizzaboypro"
         ),
         EmulatorDef(

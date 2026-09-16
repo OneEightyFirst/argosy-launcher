@@ -13,16 +13,11 @@ class PizzaBoyProRegistryTest {
         assertNotNull("Expected pizza_boy_gba_pro to be registered", emulator)
         requireNotNull(emulator)
 
-        assertTrue(
-            "Expected LaunchConfig.Custom for pizza_boy_gba_pro",
-            emulator.launchConfig is LaunchConfig.Custom
-        )
-        val launch = emulator.launchConfig as LaunchConfig.Custom
-
         assertEquals("pizza_boy_gba_pro", emulator.id)
-        assertEquals(android.content.Intent.ACTION_MAIN, emulator.launchAction)
-        assertEquals("it.dbtecno.pizzaboygbapro.MainActivity", launch.activityClass)
-        assertEquals(ExtraValue.FilePath, launch.intentExtras["rom_uri"])
+        assertTrue(
+            "Expected FileUri launch config for pizza_boy_gba_pro",
+            emulator.launchConfig is LaunchConfig.FileUri
+        )
         assertEquals(
             "pizza_boy_gba_pro",
             SavePathRegistry.getConfigByPackage(emulator.packageName)?.emulatorId
@@ -37,16 +32,11 @@ class PizzaBoyProRegistryTest {
         assertNotNull("Expected pizza_boy_gb_pro to be registered", emulator)
         requireNotNull(emulator)
 
-        assertTrue(
-            "Expected LaunchConfig.Custom for pizza_boy_gb_pro",
-            emulator.launchConfig is LaunchConfig.Custom
-        )
-        val launch = emulator.launchConfig as LaunchConfig.Custom
-
         assertEquals("pizza_boy_gb_pro", emulator.id)
-        assertEquals(android.content.Intent.ACTION_MAIN, emulator.launchAction)
-        assertEquals("it.dbtecno.pizzaboypro.MainActivity", launch.activityClass)
-        assertEquals(ExtraValue.FilePath, launch.intentExtras["rom_uri"])
+        assertTrue(
+            "Expected FileUri launch config for pizza_boy_gb_pro",
+            emulator.launchConfig is LaunchConfig.FileUri
+        )
         assertEquals(
             "pizza_boy_gb_pro",
             SavePathRegistry.getConfigByPackage(emulator.packageName)?.emulatorId
