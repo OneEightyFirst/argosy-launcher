@@ -1,17 +1,23 @@
 package com.nendo.argosy.data.emulator
 
-import kotlin.test.Test
-import kotlin.test.assertEquals
-import kotlin.test.assertIs
-import kotlin.test.assertNotNull
-import kotlin.test.assertTrue
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
+import org.junit.Assert.assertTrue
+import org.junit.Test
 
 class PizzaBoyProRegistryTest {
 
     @Test
     fun `gba pro resolves launch and sync configuration`() {
-        val emulator = assertNotNull(EmulatorRegistry.getByPackage("it.dbtecno.pizzaboygbapro"))
-        val launch = assertIs<LaunchConfig.Custom>(emulator.launchConfig)
+        val emulator = EmulatorRegistry.getByPackage("it.dbtecno.pizzaboygbapro")
+        assertNotNull("Expected pizza_boy_gba_pro to be registered", emulator)
+        requireNotNull(emulator)
+
+        assertTrue(
+            "Expected LaunchConfig.Custom for pizza_boy_gba_pro",
+            emulator.launchConfig is LaunchConfig.Custom
+        )
+        val launch = emulator.launchConfig as LaunchConfig.Custom
 
         assertEquals("pizza_boy_gba_pro", emulator.id)
         assertEquals(android.content.Intent.ACTION_MAIN, emulator.launchAction)
@@ -27,8 +33,15 @@ class PizzaBoyProRegistryTest {
 
     @Test
     fun `gb pro resolves launch and sync configuration`() {
-        val emulator = assertNotNull(EmulatorRegistry.getByPackage("it.dbtecno.pizzaboypro"))
-        val launch = assertIs<LaunchConfig.Custom>(emulator.launchConfig)
+        val emulator = EmulatorRegistry.getByPackage("it.dbtecno.pizzaboypro")
+        assertNotNull("Expected pizza_boy_gb_pro to be registered", emulator)
+        requireNotNull(emulator)
+
+        assertTrue(
+            "Expected LaunchConfig.Custom for pizza_boy_gb_pro",
+            emulator.launchConfig is LaunchConfig.Custom
+        )
+        val launch = emulator.launchConfig as LaunchConfig.Custom
 
         assertEquals("pizza_boy_gb_pro", emulator.id)
         assertEquals(android.content.Intent.ACTION_MAIN, emulator.launchAction)
